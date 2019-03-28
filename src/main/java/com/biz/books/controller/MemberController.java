@@ -50,7 +50,6 @@ public class MemberController {
 		List<MemberVO> mList = mService.loginCheck(userid);
 		// mList에는 userid에 해당하는 사용자(들)이 포함되있다.
 		boolean login_ok = false;
-		
 		if(mList != null) {
 			for(MemberVO vo : mList) {
 				
@@ -74,6 +73,7 @@ public class MemberController {
 				model.addAttribute("LOGIN_MSG","FAIL");
 			}
 		} 
+		model.addAttribute("BODY","LOGIN");
 		return "home";
 	}
 	

@@ -6,9 +6,34 @@
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<style>
+
+nav {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	transition:align-items 0.2s;
+	top:0;
+	width:100%;
+	padding:20px;
+	background-color: yellow;
+}
+.logo {
+	font-size:2rem; /* rem = em단위와 유사, em 단위를 사용하지 말자 */
+	display: inline-block;
+	padding:20px 30px;
+	background-color: #F35B66;
+	color:#fff;
+	margin:50px 0 0 50px;
+	transition: all 0.2s;
+}
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <!-- Navbar -->
+<nav>
+	<h1><a href="javascript:void(0)" class="logo">LOGO</a></h1>	
+</nav>
 <div>
  <div class="w3-bar w3-theme-d2 w3-left-align">
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
@@ -18,7 +43,6 @@
     <div class="w3-dropdown-content w3-card-4 w3-bar-block">
       <a href="<c:url value='books' />" class="w3-bar-item w3-button">독서록보기</a>
       <a href="<c:url value='books_write' />" class="w3-bar-item w3-button">독서록작성</a>
-      <a href="<c:url value='place_cafe' />" class="w3-bar-item w3-button">독서록수정</a>
     </div>
   </div>
   

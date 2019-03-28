@@ -39,4 +39,9 @@ public class BookService {
 		return bDao.findByUserId(m_userid);
 	}
 
+	public int delete(long id) {
+		
+		return bDao.delete(id);
+	}
+
 }

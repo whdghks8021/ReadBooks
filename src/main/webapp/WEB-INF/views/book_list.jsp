@@ -50,28 +50,16 @@ $(function(){
 	$(".book_tr").click(function(){
 		
 		let id = $(this).attr("data-id")
-		$.ajax({
-			url : "<c:url value='/books_update' />",
-			method : "GET",
-			data :{id:id},
-			success:function(result){
-				$("#body").html(result)
-			}
-		})
+		location.href = "<c:url value='/books_update'/>" + "?id=" + id
 		
-	})
+	})	
 	
 	$("#btn_book").click(function(){
 		
-		$.ajax({
-			url : "<c:url value='/books_write' />",
-			method : "GET",
-			success:function(result){
-				$("#body").html(result)
-			}
-		})
+		location.href = "<c:url value='/books_write'/>"
 		
-	})
+	})	
+	
 	
 	
 })

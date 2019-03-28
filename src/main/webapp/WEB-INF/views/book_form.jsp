@@ -23,11 +23,25 @@ input, textarea {
 	display: inline-block;
 	width: 85%;
 }
+
+#btn_delete {
+	margin: 2px ;
+	background-color: darkgray;
+	font-size: 12pt;
+	padding: 3px ;
+	border: 1px solid black;
+}
+#btn_delete:hover {
+	background-color: gray;
+	cursor: pointer;
+	
+}
 </style>
+
 <section>
 	<form action="<c:url value='/books_save'/>" method="POST" >
 	
-		<input type="hidden" name="id" value=<c:out value="${BOOKS.b_id}" default="0" />  >
+		<input type="hidden" name="b_id" value=<c:out value="${BOOKS.b_id}" default="0" />  >
 		<label for="b_userid">USERID</label>
 		<input value="${LOGIN_INFO.m_userid}" readonly id="b_userid" name="b_userid"><br/>
 		
@@ -49,5 +63,17 @@ input, textarea {
 		<hr />
 		<label></label>
 		<button>독서록저장</button>
+		<a id="btn_delete">독서록삭제</a>
 	</form>
 </section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$("#btn_delete").click(function(){
+	let id = ${BOOKS.b_id}
+	if(confirm("게시물을 삭제할까요?")) {
+		location.href = "<c:url value='/delete'/>" + "?id=" + id
+	}
+	
+})
+</script>

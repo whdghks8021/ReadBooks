@@ -105,14 +105,16 @@ $(function(){
 	})
 	
 	// 컨트롤러에서 보낸 LOGIN_MSG 변수에 에 문자열 FAIL이 담겨 있으면
-	if("${LOGIN_MSG}" == "FAIL") {
-		alert("존재하지 않는 아이디거나 비밀번호가 다릅니다.")
+
+	if("${LOGIN_MSG}" == 'FAIL') {
+		alert("아이디나 비밀번호가 틀립니다.")
 	}
-	if("${LOGIN_MSG}" == "ADMIN FAIL") {
+	if("${LOGIN_MSG}" == 'ADMIN FAIL') {
 		alert("관리자로 로그인해주세요.")
 	}
-	if("${LOGIN_MSG}" == "SUCCESS") {
+	if("${LOGIN_MSG}" == 'SUCCESS') {
 		alert("${LOGIN_INFO.m_name} 님 환영합니다.")
+		location.href = "<c:url value='/'/>"
 	}
 	
 })

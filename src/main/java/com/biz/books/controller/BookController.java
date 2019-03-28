@@ -28,10 +28,14 @@ public class BookController {
 	@RequestMapping(value="books", method=RequestMethod.GET)
 	public String readBook(Model model, HttpSession session) {
 		MemberVO vo = (MemberVO)session.getAttribute("LOGIN_INFO");
+		if(vo == null) {
+			model.addAttribute("BODY","LOGIN");
+		} else {
+			List<BookVO> bList = bService.findByUserId(vo.getM_userid());
+			model.addAttribute("BOOKS",bList);
+			model.addAttribute("BODY","LIST");
+		}
 		
-		List<BookVO> bList = bService.findByUserId(vo.getM_userid());
-		model.addAttribute("BOOKS",bList);
-		model.addAttribute("BODY","LIST");
 		return "home";
 	}
 	
@@ -42,14 +46,14 @@ public class BookController {
 		
 		model.addAttribute("BOOKS",vo);
 		model.addAttribute("BODY","WRITE");
-		return "book_form";
+		return "home";
 	}
 	
 	@RequestMapping(value="books_write", method=RequestMethod.GET)
 	public String writeBook(Model model) {
 		
 		model.addAttribute("BODY","WRITE");
-		return "book_form";
+		return "home";
 	}
 	
 	@RequestMapping(value="books_save",
@@ -70,9 +74,15 @@ public class BookController {
 		} else {
 			model.addAttribute("MSG","SUCCESS");
 		}
-		model.addAttribute("BODY","LIST");
-		return "home";
+		return "redirect:/books";
 		
+	}
+	
+	@RequestMapping(value="/delete" , method=RequestMethod.GET)
+	public String bookdelete(@RequestParam long id) {
+		
+		bService.delete(id);
+		return "redirect:/books";
 	}
 	
 	
