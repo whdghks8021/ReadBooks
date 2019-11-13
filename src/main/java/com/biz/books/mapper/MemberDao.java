@@ -30,3 +30,4 @@ public interface MemberDao {
 	@Select("SELECT * FROM tbl_bookmember WHERE m_userid = #{m_userid}")
 	public List<MemberVO> loginCheck(String m_userid);
 }
+

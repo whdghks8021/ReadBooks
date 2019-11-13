@@ -19,6 +19,7 @@ public class BookSQL {
 		return sql.toString();
 	}
 	
+	
 	public String book_update_sql() {
 		
 		SQL sql = new SQL().UPDATE("tbl_books")

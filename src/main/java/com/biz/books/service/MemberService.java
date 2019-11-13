@@ -19,6 +19,7 @@ public class MemberService {
 		
 		dao.insert(memberVO);
 	}
+	
 
 	public MemberVO findById(String m_userid) {
 

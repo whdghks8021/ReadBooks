@@ -32,6 +32,7 @@ public class MemberController {
 		return "home" ;
 	}
 	
+	
 	/*
 	 * 로그인, 로그아웃을 처리할 method에는 
 	 * HttpSessio 클래스를 매개변수로 설정 해 두어야 한다.

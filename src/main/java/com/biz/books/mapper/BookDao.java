@@ -29,4 +29,5 @@ public interface BookDao {
 	@Select("SELECT * FROM tbl_books WHERE b_userid = #{m_userid}")
 	public List<BookVO> findByUserId(String m_userid);
 
+	
 }
